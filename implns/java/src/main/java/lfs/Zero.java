@@ -2,6 +2,11 @@ package lfs;
 
 import java.util.Scanner;
 import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+
+
 
 public class Zero {
     public static String READ(String str){
@@ -24,17 +29,18 @@ public class Zero {
         if (args.length > 0) {
             return;
         }
-        Scanner input = new Scanner(System.in);
+        //Scanner input = new Scanner(System.in);
+        BufferedReader buffer=new BufferedReader(new InputStreamReader(System.in));
         while (true) {
-            String prompt = "-=) ";
+            String prompt = "--> ";
 	    String line = "";
 	    System.out.print(prompt);
 	    try{
-            	line =   input.nextLine().trim();
+            	line = buffer.readLine();
             	if (line == null) {
                 	continue;
             	}
-	    }catch(Exception e){
+	    }catch(IOException e){
 	    	System.out.println("IOException : " + e.getMessage());
 	    	break;
 	    }
